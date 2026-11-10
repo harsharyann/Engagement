@@ -706,11 +706,59 @@ h2 {
   text-align:center;margin-bottom:6px;z-index:10;
   animation:fadeup 1.2s cubic-bezier(0.2,0.8,0.2,1) both;
 }
-.intro-deva{
-  font-family:'Rozha One', 'Martel', serif;
-  font-size:clamp(19px, 4.4vw, 25px);
-  color:#8c6322;letter-spacing:.06em;font-weight:400;
-  text-shadow:0 1px 2px rgba(255,255,255,0.8), 0 0 16px rgba(212,175,55,0.3);
+/* ===== STYLISH HEARTS ===== */
+.stylish-hearts-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 4px;
+  animation: heartFloatPulse 3s infinite ease-in-out;
+  cursor: pointer;
+}
+.stylish-heart-svg {
+  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.45)) drop-shadow(0 0 16px rgba(220, 60, 80, 0.3));
+  transition: transform 0.3s ease;
+}
+.stylish-hearts-container:hover .stylish-heart-svg {
+  transform: scale(1.1);
+}
+@keyframes heartFloatPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.4));
+  }
+  50% {
+    transform: translateY(-4px) scale(1.06);
+    filter: drop-shadow(0 6px 18px rgba(212, 175, 55, 0.7)) drop-shadow(0 0 22px rgba(220, 70, 90, 0.4));
+  }
+}
+
+.name-heart {
+  display: inline-block;
+  color: #d43f58;
+  background: linear-gradient(135deg, #ff758c 0%, #d43f58 50%, #c49746 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.8em;
+  margin: 0 10px;
+  filter: drop-shadow(0 2px 8px rgba(212, 63, 88, 0.4));
+  animation: heartBeat 2s infinite ease-in-out;
+  vertical-align: middle;
+}
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.22); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.16); }
+  70% { transform: scale(1); }
+}
+
+.card-heart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  animation: heartBeat 2.5s infinite ease-in-out;
 }
 .intro-sub{
   font-family:'Cinzel', serif;
@@ -1189,7 +1237,31 @@ h2 {
   <div class="env-ambient-glow"></div>
   
   <div class="intro-header">
-    <div class="intro-deva">॥ श्री गणेशाय नमः ॥</div>
+    <div class="stylish-hearts-container" aria-hidden="true" title="With Love">
+      <svg class="stylish-heart-svg" width="68" height="38" viewBox="0 0 100 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffe699"/>
+            <stop offset="45%" stop-color="#d4af37"/>
+            <stop offset="100%" stop-color="#996e1d"/>
+          </linearGradient>
+          <linearGradient id="shRuby" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff7b92"/>
+            <stop offset="50%" stop-color="#d93b58"/>
+            <stop offset="100%" stop-color="#7a1829"/>
+          </linearGradient>
+          <filter id="shGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.5" result="b"/>
+            <feComposite in="SourceGraphic" in2="b" operator="over"/>
+          </filter>
+        </defs>
+        <path d="M36 42 C16 28 8 16 18 8 C26 2 34 8 36 14 C38 8 46 2 54 8 C64 16 56 28 36 42 Z" fill="url(#shRuby)" filter="url(#shGlow)"/>
+        <path d="M64 47 C44 33 36 21 46 13 C54 7 62 13 64 19 C66 13 74 7 82 13 C92 21 84 33 64 47 Z" fill="url(#shGold)" filter="url(#shGlow)" opacity="0.95"/>
+        <path d="M50 4 L51.5 8.5 L56 10 L51.5 11.5 L50 16 L48.5 11.5 L44 10 L48.5 8.5 Z" fill="#ffd700"/>
+        <circle cx="22" cy="7" r="1.5" fill="#fff" opacity="0.9"/>
+        <circle cx="78" cy="12" r="1.5" fill="#fff" opacity="0.9"/>
+      </svg>
+    </div>
     <div class="intro-sub">ROYAL ENGAGEMENT INVITATION</div>
   </div>
 
@@ -1206,7 +1278,13 @@ h2 {
         <div class="card-corner tr">&#10086;</div>
         <div class="card-corner bl">&#10086;</div>
         <div class="card-corner br">&#10086;</div>
-        <div class="card-ganesh">&#2384;</div>
+        <div class="card-heart" aria-hidden="true">
+          <svg width="34" height="20" viewBox="0 0 100 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 42 C16 28 8 16 18 8 C26 2 34 8 36 14 C38 8 46 2 54 8 C64 16 56 28 36 42 Z" fill="url(#shRuby)"/>
+            <path d="M64 47 C44 33 36 21 46 13 C54 7 62 13 64 19 C66 13 74 7 82 13 C92 21 84 33 64 47 Z" fill="url(#shGold)"/>
+            <path d="M50 4 L51.5 8.5 L56 10 L51.5 11.5 L50 16 L48.5 11.5 L44 10 L48.5 8.5 Z" fill="#ffd700"/>
+          </svg>
+        </div>
         <div class="card-tag">You Are Cordially Invited</div>
         <div class="script in-card-title" id="inCard">Surbhi &amp; Rakesh</div>
         <div class="card-rule"><span class="card-rule-gem">&#9830;</span></div>
@@ -1390,7 +1468,7 @@ function dateShort(){var p=parts();return p.d+' '+MON[p.m]+' '+p.y}
 function dateLong(){var p=parts();return DAY[new Date(Date.UTC(p.y,p.m,p.d)).getUTCDay()]+', '+dateShort()}
 function target(){return new Date(cfg.date+'T'+cfg.time+':00+05:30').getTime()}
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
-function names(){return cfg.bride+' &amp; '+cfg.groom}
+function names(){return cfg.bride+' <span class="name-heart">&#10084;&#65039;</span> '+cfg.groom}
 function namesText(){return cfg.bride+' & '+cfg.groom}
 
 /* ---------- decorative florals ---------- */
@@ -1502,13 +1580,14 @@ function heroPhotoHTML(){
 }
 function sectionsHTML(L){
   var H=L==='hi',t=TX[L],g=function(k){return H?cfg[k+'Hi']:cfg[k]},ar=function(k){return H?cfg[k+'Hi']:cfg[k]};
-  var nm=H?cfg.brideHi+' और '+cfg.groomHi:esc(cfg.bride)+' &amp; '+esc(cfg.groom);
+  var nm=H?cfg.brideHi+' <span class="name-heart">&#10084;&#65039;</span> '+cfg.groomHi:esc(cfg.bride)+' <span class="name-heart">&#10084;&#65039;</span> '+esc(cfg.groom);
   var nmCls=H?'dn':'script';
   var dShort=H?dateShortHi():dateShort(),dLong=H?dateLongHi():dateLong();
   var fl=function(a,b){return '<div class="flower '+a+'" data-flower></div><div class="flower '+b+'" data-flower></div>'};
   var sc=function(id,cls,kind,inner){return '<section class="sec '+cls+' lang-'+L+'" id="s-'+id+'-'+L+'" data-sec data-kind="'+id+'">'+inner+'</section>'};
   var out='';
-  out+=sc('hero','hero bg1','hero',fl('tl','br')+'<div class="hero-top reveal">'+(H?'<p class="deva">॥ श्री गणेशाय नमः ॥</p>':'')+'<p class="eyebrow">'+esc(t.pre)+'</p>'+'</div>'+'<div class="hero-photo reveal">'+heroPhotoHTML()+'</div>'+'<div class="hero-content reveal">'+'<h1>'+esc(t.h1)+'</h1>'+'<div class="'+nmCls+' names">'+nm+'</div>'+'<div class="rule"></div>'+'<div class="date-line">'+esc(dLong)+' &bull; '+esc(g('timeText'))+'</div>'+'<p class="hero-venue">&#128205; '+esc(g('venue'))+', '+esc(g('loc'))+'</p>'+'<div class="cd hero-cd" role="timer">'+'<div><b class="cdD">--</b><span>'+t.d+'</span></div>'+'<div><b class="cdH">--</b><span>'+t.h+'</span></div>'+'<div><b class="cdM">--</b><span>'+t.m+'</span></div>'+'<div><b class="cdS">--</b><span>'+t.s+'</span></div>'+'</div>'+'<div class="cdDone" data-done="'+esc(t.done)+'"></div>'+'</div>');
+  var heartsSvg='<div class="stylish-hearts-container reveal" aria-hidden="true" title="With Love"><svg class="stylish-heart-svg" width="60" height="34" viewBox="0 0 100 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 42 C16 28 8 16 18 8 C26 2 34 8 36 14 C38 8 46 2 54 8 C64 16 56 28 36 42 Z" fill="url(#shRuby)"/><path d="M64 47 C44 33 36 21 46 13 C54 7 62 13 64 19 C66 13 74 7 82 13 C92 21 84 33 64 47 Z" fill="url(#shGold)"/><path d="M50 4 L51.5 8.5 L56 10 L51.5 11.5 L50 16 L48.5 11.5 L44 10 L48.5 8.5 Z" fill="#ffd700"/></svg></div>';
+  out+=sc('hero','hero bg1','hero',fl('tl','br')+'<div class="hero-top reveal">'+heartsSvg+'<p class="eyebrow">'+esc(t.pre)+'</p>'+'</div>'+'<div class="hero-photo reveal">'+heroPhotoHTML()+'</div>'+'<div class="hero-content reveal">'+'<h1>'+esc(t.h1)+'</h1>'+'<div class="'+nmCls+' names">'+nm+'</div>'+'<div class="rule"></div>'+'<div class="date-line">'+esc(dLong)+' &bull; '+esc(g('timeText'))+'</div>'+'<p class="hero-venue">&#128205; '+esc(g('venue'))+', '+esc(g('loc'))+'</p>'+'<div class="cd hero-cd" role="timer">'+'<div><b class="cdD">--</b><span>'+t.d+'</span></div>'+'<div><b class="cdH">--</b><span>'+t.h+'</span></div>'+'<div><b class="cdM">--</b><span>'+t.m+'</span></div>'+'<div><b class="cdS">--</b><span>'+t.s+'</span></div>'+'</div>'+'<div class="cdDone" data-done="'+esc(t.done)+'"></div>'+'</div>');
   out+=sc('story','bg2','story',fl('tr','bl').replace(/<div class="flower bl"[^>]*><\/div>/,'')+
     '<p class="eyebrow reveal">'+esc(t.two)+'</p><div class="story-wrap reveal"><div class="story-photos" data-cycle="'+L+'">'+photoSets().map(phHTML).join('')+'</div>'+
     '<div class="story-text"><h2 class="'+(H?'':'script ')+'stitle">'+esc(g('storyTitle'))+'</h2>'+
