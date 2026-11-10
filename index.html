@@ -1,4 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Jost:wght@300;400;500;600&family=Rozha+One&display=swap" rel="stylesheet">
+<style>
 /* Layout: full-screen cinematic chapters that auto-advance; ivory/blush with champagne gold; one gold-script moment per chapter */
 :root{
   --ivory:#fdf9f4; --blush:#faeae6; --rose:#dc949d; --gold:#c49746; --gold-soft:#eed9a8; --gold-rich:#d4af37; --gold-dark:#997223;
@@ -692,96 +696,23 @@ h2 {
   width: 100% !important;
 }
 /* ===== 3D ROYAL VELVET ENVELOPE (RESTORED) ===== */
-/* ===== 3D ULTRA-LUXURY ROYAL ENVELOPE ===== */
+/* ===== 3D ULTRA-REALISTIC ROYAL VELVET ENVELOPE ===== */
 #intro{
   position:fixed;inset:0;z-index:100;
-  background:radial-gradient(ellipse at 50% 38%, #fffef8 0%, #faeee7 38%, #eccdce 75%, #b27a85 100%)!important;
+  background:radial-gradient(ellipse at 50% 35%, #fffdfa 0%, #f7ece5 40%, #edd3d5 75%, #b57a84 100%)!important;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;transition:opacity 1.2s ease,visibility 1.2s;padding:16px;
+  gap:12px;padding:max(16px, env(safe-area-inset-top, 16px)) 16px max(24px, env(safe-area-inset-bottom, 24px));
   overflow:hidden;
+  transition:opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.9s;
 }
-#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
-
-.intro-header{
-  text-align:center;margin-bottom:6px;z-index:10;
-  animation:fadeup 1.2s cubic-bezier(0.2,0.8,0.2,1) both;
-}
-.intro-deva{
-  font-family:'Rozha One', 'Martel', serif;
-  font-size:clamp(19px, 4.4vw, 25px);
-  color:#8c6322;letter-spacing:.06em;font-weight:400;
-  text-shadow:0 1px 2px rgba(255,255,255,0.8), 0 0 16px rgba(212,175,55,0.3);
-  margin:0 0 2px;
-}
-.card-ganesh{
-  font-size:18px;color:#b88d3e;line-height:1;margin-bottom:2px;
-  text-shadow:0 0 8px rgba(212,175,55,0.4);
-}
-/* ===== STYLISH HEARTS ===== */
-.stylish-hearts-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 4px;
-  animation: heartFloatPulse 3s infinite ease-in-out;
-  cursor: pointer;
-}
-.stylish-heart-svg {
-  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.45)) drop-shadow(0 0 16px rgba(220, 60, 80, 0.3));
-  transition: transform 0.3s ease;
-}
-.stylish-hearts-container:hover .stylish-heart-svg {
-  transform: scale(1.1);
-}
-@keyframes heartFloatPulse {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.4));
-  }
-  50% {
-    transform: translateY(-4px) scale(1.06);
-    filter: drop-shadow(0 6px 18px rgba(212, 175, 55, 0.7)) drop-shadow(0 0 22px rgba(220, 70, 90, 0.4));
-  }
+#intro.gone{
+  opacity:0;visibility:hidden;pointer-events:none;
 }
 
-.name-heart {
-  display: inline-block;
-  color: #d43f58;
-  background: linear-gradient(135deg, #ff758c 0%, #d43f58 50%, #c49746 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 0.8em;
-  margin: 0 10px;
-  filter: drop-shadow(0 2px 8px rgba(212, 63, 88, 0.4));
-  animation: heartBeat 2s infinite ease-in-out;
-  vertical-align: middle;
-}
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  14% { transform: scale(1.22); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.16); }
-  70% { transform: scale(1); }
-}
-
-.card-heart {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2px;
-  animation: heartBeat 2.5s infinite ease-in-out;
-}
-.intro-sub{
-  font-family:'Cinzel', serif;
-  font-size:clamp(10px, 2.2vw, 12px);
-  letter-spacing:.32em;color:#6e464e;margin-top:4px;
-  text-transform:uppercase;font-weight:600;
-}
-
-.env-ambient-glow{
-  position:absolute;width:min(95vw,480px);height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(212,175,55,0.4) 0%,rgba(184,141,62,0.18) 45%,transparent 70%);
-  filter:blur(36px);z-index:1;pointer-events:none;
+.intro-ambient-glow{
+  position:absolute;width:min(95vw, 520px);height:320px;border-radius:50%;
+  background:radial-gradient(circle, rgba(212,175,55,0.38) 0%, rgba(184,141,62,0.16) 45%, transparent 70%);
+  filter:blur(36px);pointer-events:none;z-index:1;
   animation:glowPulse 4s infinite ease-in-out;
 }
 @keyframes glowPulse{
@@ -789,221 +720,280 @@ h2 {
   50%{opacity:0.85;transform:scale(1.06)}
 }
 
-/* ===== ULTRA-LUXURY ROYAL PORTAL (REPLACES ENVELOPE) ===== */
-.intro-ambient-glow{
-  position:absolute;width:min(90vw, 500px);height:min(90vw, 500px);border-radius:50%;
-  background:radial-gradient(circle, rgba(212,175,55,0.32) 0%, rgba(184,141,62,0.12) 50%, transparent 70%);
-  filter:blur(40px);pointer-events:none;z-index:1;
-  animation:glowPulse 4s infinite ease-in-out;
+/* Header above envelope */
+.intro-header{
+  text-align:center;margin-bottom:8px;z-index:10;
+  animation:fadeup 1.2s cubic-bezier(0.2,0.8,0.2,1) both;
 }
-@keyframes glowPulse{
-  0%,100%{opacity:0.5;transform:scale(0.95)}
-  50%{opacity:0.9;transform:scale(1.08)}
+.intro-deva{
+  font-family:'Rozha One', serif!important;
+  font-size:clamp(22px, 5.2vw, 29px)!important;
+  color:#7a2232!important;
+  letter-spacing:.05em;font-weight:400;
+  text-shadow:0 1px 2px rgba(255,255,255,0.9), 0 0 16px rgba(212,175,55,0.4);
+  margin:0 0 2px;
+}
+.intro-sub{
+  font-family:'Cinzel', serif!important;
+  font-size:clamp(10px, 2.3vw, 12px)!important;
+  letter-spacing:.34em;color:#6e464e;
+  text-transform:uppercase;font-weight:700;
 }
 
-/* The Royal Plaque Card */
-.royal-plaque{
+/* The Envelope Unit */
+.env{
   position:relative;
-  width:min(92vw, 420px);
-  border-radius:24px;
-  background:linear-gradient(165deg, rgba(255,255,255,0.1) 0%, rgba(255,248,238,0.04) 50%, rgba(20,5,8,0.35) 100%);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
-  border:1.5px solid rgba(212,175,55,0.65);
-  box-shadow:0 30px 80px rgba(0,0,0,0.7), 0 0 35px rgba(212,175,55,0.22), inset 0 0 30px rgba(212,175,55,0.06);
-  padding:26px 22px 24px;
-  text-align:center;
-  box-sizing:border-box;
-  z-index:2;
+  width:min(90vw, 420px);
+  aspect-ratio:1.52;
+  perspective:1400px;
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 25px 45px rgba(65,15,25,0.42)) drop-shadow(0 6px 18px rgba(184,141,62,0.28));
   cursor:pointer;
-  animation:royalCardFloat 6s ease-in-out infinite;
-  transition:transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease, filter 0.8s ease;
+  margin:6px 0 16px;
+  animation:envFloat 5s ease-in-out infinite;
   user-select:none;
   -webkit-user-select:none;
   touch-action:manipulation;
+  transition:transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+  z-index:2;
 }
-.royal-plaque:hover{
-  transform:translateY(-4px) scale(1.012);
-  border-color:rgba(255,215,0,0.85);
-  box-shadow:0 35px 90px rgba(0,0,0,0.75), 0 0 50px rgba(212,175,55,0.35);
+.env:hover{
+  transform:translateY(-5px) scale(1.02);
 }
-@keyframes royalCardFloat{
+@keyframes envFloat{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+  50%{transform:translateY(-7px)}
 }
 
-#intro.unveiling .royal-plaque{
-  transform:scale(1.15) translateY(-10px)!important;
-  opacity:0!important;
-  filter:blur(10px)!important;
-  pointer-events:none;
+/* Back Pocket of Envelope with Royal Damask Liner */
+.env .env-back{
+  position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(145deg, #4f0a14 0%, #30040b 100%);
+  box-shadow:inset 0 0 0 1.5px rgba(212,175,55,0.45);
+  overflow:hidden;
+}
+.env .env-back .inner-liner{
+  position:absolute;inset:6px;border-radius:10px;
+  background-color:#3a070e;
+  background-image:radial-gradient(circle, rgba(212,175,55,0.28) 1.5px, transparent 1.5px),
+                   repeating-linear-gradient(45deg, rgba(212,175,55,0.08) 0, rgba(212,175,55,0.08) 1px, transparent 0, transparent 14px),
+                   repeating-linear-gradient(-45deg, rgba(212,175,55,0.08) 0, rgba(212,175,55,0.08) 1px, transparent 0, transparent 14px);
+  background-size:26px 26px, 14px 14px, 14px 14px;
+  box-shadow:inset 0 0 25px rgba(0,0,0,0.65);
 }
 
-/* Inner Filigree Border */
-.plaque-filigree{
-  position:absolute;inset:7px;
-  border:1px solid rgba(212,175,55,0.35);
-  border-radius:18px;
-  pointer-events:none;
-}
-.plaque-corner{
-  position:absolute;font-size:13px;color:#d4af37;line-height:1;pointer-events:none;
-}
-.plaque-corner.tl{top:6px;left:7px}
-.plaque-corner.tr{top:6px;right:7px}
-.plaque-corner.bl{bottom:6px;left:7px}
-.plaque-corner.br{bottom:6px;right:7px}
-
-/* Auspicious Ganesh Header */
-.intro-deva{
-  font-family:'Rozha One', 'Martel', serif;
-  font-size:clamp(20px, 5.2vw, 27px);
-  color:#ffe082;
-  letter-spacing:.06em;
-  font-weight:400;
-  text-shadow:0 2px 4px rgba(0,0,0,0.8), 0 0 18px rgba(255,215,0,0.55);
-  margin:0 0 4px;
-}
-.intro-sub{
-  font-family:'Cinzel', serif;
-  font-size:clamp(10px, 2.4vw, 11.5px);
-  letter-spacing:.32em;
-  color:#f0dab0;
-  text-transform:uppercase;
-  font-weight:600;
-  margin:0 0 16px;
-  opacity:0.9;
-}
-
-/* 3D Wax Seal Monogram Crest */
-.crest-wrap{
-  position:relative;
-  width:88px;height:88px;
-  margin:0 auto 14px;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;
-}
-.crest-halo{
-  position:absolute;inset:-8px;
-  border-radius:50%;
-  border:1.5px solid rgba(255,215,0,0.6);
-  box-shadow:0 0 25px rgba(255,215,0,0.5), inset 0 0 15px rgba(255,215,0,0.3);
-  animation:crestHaloPulse 2.4s infinite ease-in-out;
-  pointer-events:none;
-}
-@keyframes crestHaloPulse{
-  0%,100%{transform:scale(0.94);opacity:0.45}
-  50%{transform:scale(1.12);opacity:0.95}
-}
-.royal-crest{
-  width:100%;height:100%;
-  border-radius:50%;
-  background:radial-gradient(circle at 35% 30%, #fff8db 0%, #e0b84c 28%, #b88628 65%, #614207 100%);
-  box-shadow:0 12px 30px rgba(0,0,0,0.6), 0 0 24px rgba(212,175,55,0.55), inset 0 2px 6px rgba(255,255,255,0.85), inset 0 -3px 8px rgba(0,0,0,0.65);
+/* The Invitation Card inside the pocket */
+.env .card{
+  position:absolute;left:5%;right:5%;top:6%;bottom:6%;
+  background:linear-gradient(145deg, #ffffff 0%, #fffdf8 45%, #fbf3e5 100%);
+  border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;
-  transition:transform 0.5s ease;
+  z-index:2;
+  transition:transform 1.4s 0.25s cubic-bezier(0.18, 0.9, 0.22, 1), box-shadow 1.4s 0.25s;
+  border:1.2px solid rgba(212,175,55,0.6);padding:6px;
+  box-sizing:border-box;
 }
-.royal-crest:hover{
-  transform:scale(1.06);
+.env.open .card{
+  transform:translateY(-68%) scale(1.08)!important;
+  box-shadow:0 35px 70px -15px rgba(50,15,22,0.5), 0 0 35px rgba(212,175,55,0.38)!important;
 }
-.crest-rim{
+
+.card-inner{
+  width:100%;height:100%;
+  border:1.5px solid #b88d3e;border-radius:6px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:10px 14px 8px;text-align:center;position:relative;
+  background:radial-gradient(circle at 50% 45%, rgba(255,255,255,0.98), rgba(255,251,245,0.94));
+  box-shadow:inset 0 0 0 2.5px #ffffff, inset 0 0 0 4px rgba(184,141,62,0.35);
+  box-sizing:border-box;
+}
+.card-corner{
+  position:absolute;font-size:11px;color:var(--gold);line-height:1;pointer-events:none;
+}
+.card-corner.tl{top:4px;left:4px}
+.card-corner.tr{top:4px;right:4px}
+.card-corner.bl{bottom:4px;left:4px}
+.card-corner.br{bottom:4px;right:4px}
+
+.card-ganesh{
+  font-size:18px;color:#b88d3e;line-height:1;margin-bottom:1px;
+  text-shadow:0 0 8px rgba(212,175,55,0.4);
+}
+.card-tag{
+  font-family:'Rozha One', serif;font-size:10px;letter-spacing:.08em;
+  color:#7a2232;margin-bottom:1px;font-weight:400;
+}
+.in-card-title{
+  font-family:'Great Vibes', cursive!important;
+  font-size:clamp(30px, 8vw, 44px)!important;
+  line-height:1.12!important;
+  background:linear-gradient(135deg, #7a2232 0%, #b88d3e 30%, #d4af37 50%, #8c6322 75%, #7a2232 100%)!important;
+  -webkit-background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  filter:drop-shadow(0 2px 6px rgba(184,141,62,0.3));
+  margin:1px 0!important;
+}
+.card-rule{
+  width:120px;height:1px;
+  background:linear-gradient(90deg, transparent, #b88d3e, transparent);
+  margin:4px auto;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-rule-gem{
+  font-size:8px;color:#b88d3e;background:#fffefb;padding:0 4px;
+}
+.card-date-badge{
+  font-family:'Cinzel',serif!important;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink);font-weight:700;
+}
+.card-loc{
+  font-family:'Cinzel',serif!important;font-size:9px;letter-spacing:.28em;
+  text-transform:uppercase;color:#8c6322;margin-top:2px;font-weight:600;
+}
+
+/* Front Multi-Fold Pocket */
+.env .front{
+  position:absolute;inset:0;border-radius:14px;
+  pointer-events:none;z-index:3;overflow:hidden;
+}
+.front-left{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, #681422 0%, #4d0c17 100%);
+  clip-path:polygon(0 0, 0 100%, 50% 50%);
+  filter:drop-shadow(2px 0 5px rgba(0,0,0,0.4));
+}
+.front-right{
+  position:absolute;inset:0;
+  background:linear-gradient(225deg, #5c101c 0%, #440913 100%);
+  clip-path:polygon(100% 0, 100% 100%, 50% 50%);
+  filter:drop-shadow(-2px 0 5px rgba(0,0,0,0.4));
+}
+.front-bottom{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, #851c2c 0%, #580e1b 100%);
+  clip-path:polygon(0 100%, 100% 100%, 50% 48%);
+  filter:drop-shadow(0 -3px 8px rgba(0,0,0,0.45));
+}
+.front-bottom-gold{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg, #996e1d 0%, #f7df96 35%, #fff2be 50%, #f7df96 65%, #996e1d 100%);
+  clip-path:polygon(0 100%, 50% 48%, 100% 100%, 98% 100%, 50% 50%, 2% 100%);
+  pointer-events:none;
+}
+
+/* 3D Folding Top Flap */
+.env .flap{
+  position:absolute;left:0;right:0;top:0;height:56%;
+  transform-origin:top center;transform-style:preserve-3d;
+  transition:transform 1.15s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index:6;pointer-events:none;
+}
+.flap-outer{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, #8f2334 0%, #681422 100%);
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,0.45));
+  backface-visibility:hidden;
+}
+.flap-border-v{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(212,175,55,0.65) 85%, #ffd700 100%);
+  clip-path:polygon(0 0, 50% 100%, 100% 0, 97% 0, 50% 95%, 3% 0);
+  pointer-events:none;
+}
+.flap-inner{
+  position:absolute;inset:0;
+  background:#3a070e;
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  transform:rotateX(180deg);
+  backface-visibility:hidden;
+}
+.flap-liner{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(212,175,55,0.28) 1.5px, transparent 1.5px),
+                   repeating-linear-gradient(45deg, rgba(212,175,55,0.08) 0, rgba(212,175,55,0.08) 1px, transparent 0, transparent 14px);
+  background-size:26px 26px, 14px 14px;
+}
+.env.open .flap{
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+/* 3D Royal Gold Wax Seal */
+.seal-wrap{
+  position:absolute;left:50%;top:55%;
+  transform:translate(-50%, -50%);
+  z-index:7;
+  transition:transform 0.6s cubic-bezier(0.2,0.8,0.2,1), opacity 0.5s ease;
+  pointer-events:none;
+}
+.ribbon-tail{
+  position:absolute;top:32px;width:20px;height:38px;
+  background:linear-gradient(180deg, #b88d3e 0%, #ffd700 50%, #8c6322 100%);
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+  box-shadow:0 4px 8px rgba(0,0,0,0.3);
+  z-index:-1;
+}
+.ribbon-tail.left{
+  left:8px;transform:rotate(24deg);transform-origin:top center;
+}
+.ribbon-tail.right{
+  right:8px;transform:rotate(-24deg);transform-origin:top center;
+}
+.env .seal{
+  width:74px;height:74px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fff8db 0%, #e0b84c 28%, #ad8223 68%, #573e07 100%);
+  box-shadow:0 10px 25px rgba(0,0,0,0.55), 0 0 22px rgba(212,175,55,0.5), inset 0 2px 6px rgba(255,255,255,0.85), inset 0 -3px 8px rgba(0,0,0,0.65);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  animation:sealPulse 3s infinite ease-in-out;
+  position:relative;cursor:pointer;pointer-events:auto;
+}
+.seal-ring{
   position:absolute;inset:5px;
   border:1.5px dashed rgba(255,248,220,0.85);
   border-radius:50%;
-  box-shadow:inset 0 0 4px rgba(0,0,0,0.3);
+  box-shadow:inset 0 0 4px rgba(0,0,0,0.25);
 }
-.crest-crown{
-  font-size:14px;color:#fff8db;line-height:1;margin-bottom:0px;
-  text-shadow:0 1px 3px rgba(0,0,0,0.6);
+.seal-crown{
+  font-size:13px;color:#fff8db;line-height:1;margin-bottom:0px;
+  text-shadow:0 1px 2px rgba(0,0,0,0.5);
 }
-.crest-monogram{
-  font-family:'Great Vibes', cursive;
-  font-size:28px;font-weight:bold;
+.seal-monogram{
+  font-family:'Great Vibes', cursive!important;
+  font-size:26px;font-weight:bold;
   color:#ffffff;
-  text-shadow:0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(255,235,160,0.7);
+  text-shadow:0 2px 4px rgba(0,0,0,0.55), 0 0 10px rgba(255,235,160,0.6);
   line-height:1;margin-top:1px;
 }
-#intro.unveiling .crest-wrap{
-  transform:scale(1.5) rotate(20deg);
-  opacity:0;
-  transition:transform 0.6s cubic-bezier(0.2,0.8,0.2,1), opacity 0.5s;
+@keyframes sealPulse{
+  0%,100%{transform:scale(1);box-shadow:0 10px 25px rgba(0,0,0,0.55), 0 0 22px rgba(212,175,55,0.5)}
+  50%{transform:scale(1.06);box-shadow:0 14px 30px rgba(0,0,0,0.6), 0 0 32px rgba(212,175,55,0.8)}
+}
+.env.open .seal-wrap{
+  transform:translate(-50%, -50%) scale(1.5) rotate(18deg);
+  opacity:0;filter:blur(4px);pointer-events:none;
 }
 
-/* Couple Names & Details */
-.intro-couple{
-  font-family:'Great Vibes', cursive!important;
-  font-size:clamp(36px, 9.2vw, 54px)!important;
-  line-height:1.15!important;
-  background:linear-gradient(135deg, #ffe699 0%, #ffd700 35%, #ffffff 50%, #d4af37 75%, #ffe699 100%)!important;
-  background-size:200% auto!important;
-  -webkit-background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-  animation:goldFoilShine 5s linear infinite;
-  filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6));
-  margin:4px 0 6px!important;
-}
-.plaque-rule{
-  width:140px;height:1px;
-  background:linear-gradient(90deg, transparent, #ffd700, transparent);
-  margin:10px auto 12px;
+/* Tap Hint Button below envelope */
+.intro-tap{
   position:relative;
-  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif!important;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:#7a2232;
+  background:linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,248,238,0.9));
+  padding:11px 24px;border-radius:30px;
+  border:1.5px solid #b88d3e;
+  box-shadow:0 8px 24px rgba(120,40,50,0.18), 0 0 18px rgba(184,141,62,0.3);
+  animation:tapPulse 2.2s infinite ease-in-out;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  font-weight:700;z-index:10;
 }
-.plaque-gem{
-  font-size:8px;color:#ffd700;background:#2b060d;padding:0 6px;
+.tap-gem{
+  color:#b88d3e;font-size:13px;
 }
-.intro-date{
-  font-family:'Cinzel', serif;
-  font-size:clamp(12px, 2.9vw, 15px);
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#fff2d4;
-  font-weight:700;
-  text-shadow:0 2px 4px rgba(0,0,0,0.8);
-  margin-bottom:4px;
-}
-.intro-venue{
-  font-family:'Cinzel', serif;
-  font-size:clamp(10px, 2.3vw, 12px);
-  letter-spacing:.26em;
-  text-transform:uppercase;
-  color:#d4af37;
-  font-weight:600;
-  margin-bottom:18px;
-}
-
-/* Unveil Button */
-.unveil-btn{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-family:'Cinzel', serif;
-  font-size:clamp(11px, 2.6vw, 13px);
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  font-weight:700;
-  color:#ffffff;
-  background:linear-gradient(135deg, #c49746 0%, #e0b84c 50%, #996e1d 100%);
-  border:1px solid #ffd700;
-  border-radius:30px;
-  padding:12px 28px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.45);
-  cursor:pointer;
-  transition:all 0.3s ease;
-  user-select:none;
-  outline:none;
-}
-.unveil-btn:hover{
-  transform:translateY(-2px) scale(1.04);
-  box-shadow:0 12px 32px rgba(0,0,0,0.6), 0 0 30px rgba(255,215,0,0.7);
-  background:linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #a67c1e 100%);
-}
-.unveil-sparkle{
-  color:#fff5be;
-  font-size:12px;
-  animation:sparkleTwinkle 2s infinite ease-in-out;
+@keyframes tapPulse{
+  0%,100%{transform:scale(1);box-shadow:0 6px 20px rgba(120,40,50,0.18), 0 0 16px rgba(184,141,62,0.25)}
+  50%{transform:scale(1.05);box-shadow:0 10px 28px rgba(120,40,50,0.25), 0 0 26px rgba(184,141,62,0.5)}
 }
 
 /* ===== FLOATING CHAPTER PAGINATION & CINEMATIC TRANSITIONS ===== */
@@ -1329,45 +1319,68 @@ h2 {
 
 <div id="intro" role="dialog" aria-label="Royal Engagement Invitation">
   <div class="intro-ambient-glow"></div>
-
-  <!-- Grand Glassmorphic Royal Plaque -->
-  <div class="royal-plaque" id="introPlaque">
-    <div class="plaque-filigree"></div>
-    <div class="plaque-corner tl">&#10086;</div>
-    <div class="plaque-corner tr">&#10086;</div>
-    <div class="plaque-corner bl">&#10086;</div>
-    <div class="plaque-corner br">&#10086;</div>
-
-    <!-- Sacred Ganesh Invocation -->
+  
+  <div class="intro-header">
     <div class="intro-deva">॥ श्री गणेशाय नमः ॥</div>
     <div class="intro-sub">ROYAL ENGAGEMENT INVITATION</div>
+  </div>
 
-    <!-- 3D Gold Wax Monogram Crest -->
-    <div class="crest-wrap" id="inSealWrap" title="Tap to Unveil">
-      <div class="crest-halo"></div>
-      <div class="royal-crest" id="inSeal">
-        <div class="crest-rim"></div>
-        <div class="crest-crown">&#9818;</div>
-        <div class="crest-monogram" id="inMonogram">S &amp; R</div>
+  <div class="env" id="env" title="Tap Envelope to Open">
+    <!-- Back Interior with Royal Gold Damask Liner -->
+    <div class="env-back">
+      <div class="inner-liner"></div>
+    </div>
+
+    <!-- The Invitation Card that pops out -->
+    <div class="card" id="envCard">
+      <div class="card-inner">
+        <div class="card-corner tl">&#10086;</div>
+        <div class="card-corner tr">&#10086;</div>
+        <div class="card-corner bl">&#10086;</div>
+        <div class="card-corner br">&#10086;</div>
+        <div class="card-ganesh">&#2384;</div>
+        <div class="card-tag">॥ श्री गणेशाय नमः ॥</div>
+        <div class="script in-card-title" id="inCard">Surbhi <span class="name-heart">&#10084;&#65039;</span> Rakesh</div>
+        <div class="card-rule"><span class="card-rule-gem">&#9830;</span></div>
+        <div class="card-date-badge" id="inCardDate">29 November 2026</div>
+        <div class="card-loc" id="inCardLoc">MUZAFFARPUR, BIHAR</div>
       </div>
     </div>
 
-    <!-- Couple Names in Gold Foil Calligraphy -->
-    <div class="script intro-couple" id="inCard">Surbhi <span class="name-heart">&#10084;&#65039;</span> Rakesh</div>
+    <!-- Front Multi-Fold Pocket -->
+    <div class="front">
+      <div class="front-left"></div>
+      <div class="front-right"></div>
+      <div class="front-bottom"></div>
+      <div class="front-bottom-gold"></div>
+    </div>
 
-    <!-- Ornamental Gold Divider -->
-    <div class="plaque-rule"><span class="plaque-gem">&#9830;</span></div>
+    <!-- 3D Folding Top Flap with Gold Trim and Inner Lining -->
+    <div class="flap">
+      <div class="flap-outer">
+        <div class="flap-border-v"></div>
+      </div>
+      <div class="flap-inner">
+        <div class="flap-liner"></div>
+      </div>
+    </div>
 
-    <!-- Date & Venue -->
-    <div class="intro-date" id="inCardDate">29 November 2026</div>
-    <div class="intro-venue" id="inCardLoc">MUZAFFARPUR, BIHAR</div>
+    <!-- 3D Royal Gold Wax Seal with Ribbon Tails and Crown Monogram -->
+    <div class="seal-wrap" id="inSealWrap">
+      <div class="ribbon-tail left"></div>
+      <div class="ribbon-tail right"></div>
+      <div class="seal" id="inSeal">
+        <div class="seal-ring"></div>
+        <div class="seal-crown">&#9818;</div>
+        <span class="seal-monogram" id="inMonogram">S &amp; R</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Interactive Unveil Button -->
-    <button class="unveil-btn" id="introTapBtn" type="button" aria-label="Unveil Invitation">
-      <span class="unveil-sparkle">&#10024;</span>
-      <span>UNVEIL INVITATION</span>
-      <span class="unveil-sparkle">&#10024;</span>
-    </button>
+  <div class="intro-tap" id="introTapBtn">
+    <span class="tap-gem">&#10024;</span>
+    <span>TAP ENVELOPE TO OPEN</span>
+    <span class="tap-gem">&#10024;</span>
   </div>
 
   <div class="intro-names" style="display:none;">
@@ -2053,15 +2066,15 @@ function openEnvelopeNow(){
   if(introSkipped||started)return;
   introSkipped=true;
   tryMusic();
-  if(window.burstConfetti)window.burstConfetti(innerWidth*0.5,innerHeight*0.45);
-  var introEl=$('intro');
-  if(introEl)introEl.classList.add('unveiling');
+  if(window.burstConfetti)window.burstConfetti(innerWidth*0.5,innerHeight*0.48);
+  var envEl=$('env');
+  if(envEl)envEl.classList.add('open');
   setTimeout(function(){
     if(!started){
       $('intro').classList.add('gone');
       begin();
     }
-  },1000);
+  },2300);
 }
 
 $('intro').addEventListener('click',function(e){
