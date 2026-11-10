@@ -724,13 +724,16 @@ h2 {
 .intro-header{
   text-align:center;margin-bottom:8px;z-index:10;
   animation:fadeup 1.2s cubic-bezier(0.2,0.8,0.2,1) both;
-  transition:opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  transition:opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 #intro.opening .intro-header,
-#intro:has(.env.open) .intro-header{
-  opacity:0;
-  transform:translateY(-24px) scale(0.95);
-  pointer-events:none;
+#intro:has(.env.open) .intro-header,
+.env.open ~ .intro-header{
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:translateY(-30px) scale(0.92)!important;
+  pointer-events:none!important;
+  animation:none!important;
 }
 .intro-deva{
   font-family:'Rozha One', serif!important;
@@ -1004,9 +1007,11 @@ h2 {
 #intro.opening .intro-tap,
 #intro:has(.env.open) .intro-tap,
 .env.open ~ .intro-tap{
-  opacity:0;
-  transform:translateY(16px);
-  pointer-events:none;
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:translateY(16px)!important;
+  pointer-events:none!important;
+  animation:none!important;
 }
 .tap-gem{
   color:#b88d3e;font-size:13px;
@@ -1340,7 +1345,7 @@ h2 {
 <div id="intro" role="dialog" aria-label="Royal Engagement Invitation">
   <div class="intro-ambient-glow"></div>
   
-  <div class="intro-header">
+  <div class="intro-header" id="introHeader">
     <div class="intro-deva">॥ श्री गणेशाय नमः ॥</div>
   </div>
 
@@ -2084,7 +2089,24 @@ function openEnvelopeNow(){
   tryMusic();
   if(window.burstConfetti)window.burstConfetti(innerWidth*0.5,innerHeight*0.48);
   var introEl=$('intro');
-  if(introEl)introEl.classList.add('opening');
+  if(introEl){
+    introEl.classList.add('opening');
+    var hdr=$('introHeader');
+    if(hdr){
+      hdr.style.animation='none';
+      hdr.style.opacity='0';
+      hdr.style.visibility='hidden';
+      hdr.style.transform='translateY(-30px) scale(0.92)';
+      hdr.style.pointerEvents='none';
+    }
+    var tapB=$('introTapBtn');
+    if(tapB){
+      tapB.style.animation='none';
+      tapB.style.opacity='0';
+      tapB.style.visibility='hidden';
+      tapB.style.pointerEvents='none';
+    }
+  }
   var envEl=$('env');
   if(envEl)envEl.classList.add('open');
   setTimeout(function(){
