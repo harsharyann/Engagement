@@ -1220,50 +1220,55 @@ h2 {
   100%{ opacity: 0; transform: scaleY(0.85); }
 }
 
-/* ===== SABSE LAST ME LOCATION & GOOGLE MAP SECTION ===== */
+/* ===== SABSE LAST ME LOCATION & GOOGLE MAP SECTION (THEMATIC ROYAL & LOVELY) ===== */
 .map-section {
   padding-bottom: 120px !important;
 }
 .location-card {
   width: min(92vw, 680px);
-  background: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid var(--gold);
-  border-radius: 16px;
-  padding: clamp(20px, 4vw, 36px);
-  box-shadow: 0 25px 60px -15px rgba(91, 27, 38, 0.2), 0 0 25px rgba(212, 175, 55, 0.15);
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #fffdfa 45%, #faf2e8 100%);
+  border: 1.8px solid #b88d3e;
+  border-radius: 18px;
+  padding: clamp(22px, 4.5vw, 38px);
+  box-shadow: 0 30px 70px -15px rgba(91, 27, 38, 0.25), 0 0 30px rgba(212, 175, 55, 0.2);
   backdrop-filter: blur(12px);
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   position: relative;
   overflow: hidden;
   text-align: center;
+  box-sizing: border-box;
 }
 .location-card::before {
   content: '';
   position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 12px;
+  inset: 7px;
+  border: 1px solid rgba(184, 141, 62, 0.45);
+  border-radius: 13px;
   pointer-events: none;
+  box-shadow: inset 0 0 16px rgba(212, 175, 55, 0.1);
 }
 .loc-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   text-align: left;
 }
 .loc-icon-bubble {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c49746, #8c6322);
+  background: radial-gradient(circle at 35% 30%, #fff8db 0%, #e0b84c 28%, #ad8223 68%, #573e07 100%);
+  border: 2px solid rgba(255, 248, 220, 0.85);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  box-shadow: 0 8px 18px rgba(140, 99, 34, 0.35);
+  font-size: 26px;
+  box-shadow: 0 10px 24px rgba(120, 30, 45, 0.28), 0 0 20px rgba(212, 175, 55, 0.45), inset 0 2px 5px rgba(255,255,255,0.85), inset 0 -3px 6px rgba(0,0,0,0.5);
   flex-shrink: 0;
+  position: relative;
+  animation: sealPulse 3.5s infinite ease-in-out;
 }
 .loc-details {
   flex: 1;
@@ -1271,63 +1276,122 @@ h2 {
 }
 .loc-venue {
   display: block;
-  font-family: var(--heading-font);
-  font-size: clamp(22px, 4.8vw, 32px);
-  color: var(--royal-rose);
-  line-height: 1.15;
-  margin-bottom: 4px;
+  font-family: 'Cinzel Decorative', 'Cinzel', serif !important;
+  font-size: clamp(24px, 5.2vw, 34px);
+  background: linear-gradient(135deg, #7a2232 0%, #b88d3e 35%, #d4af37 55%, #8c6322 80%, #7a2232 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 1px 3px rgba(184,141,62,0.25));
+  font-weight: 700;
+  line-height: 1.18;
+  margin-bottom: 3px;
+  letter-spacing: .02em;
 }
 .loc-address {
   display: block;
-  font-family: var(--body-font);
-  font-size: clamp(14px, 2.8vw, 17px);
-  color: var(--ink-soft);
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(13px, 2.7vw, 15px);
+  color: #6e464e;
+  font-weight: 600;
+  letter-spacing: .08em;
   line-height: 1.4;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .loc-timing {
-  display: inline-block;
-  font-family: var(--label-font);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif !important;
   font-size: 11px;
-  letter-spacing: .15em;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--gold-dark);
-  font-weight: 600;
-  background: rgba(212, 175, 55, 0.12);
-  padding: 4px 12px;
+  color: #7a2232;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,248,238,0.85));
+  padding: 5px 14px;
   border-radius: 20px;
-  margin-top: 4px;
+  border: 1px solid rgba(184, 141, 62, 0.45);
+  box-shadow: 0 4px 12px rgba(120, 40, 50, 0.08);
 }
 .map-embed-wrapper {
   width: 100%;
-  height: clamp(260px, 45vh, 360px);
-  border-radius: 12px;
+  height: clamp(280px, 48vh, 380px);
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  border: 2px solid #b88d3e;
+  box-shadow: 0 16px 36px -8px rgba(91, 27, 38, 0.25), 0 0 25px rgba(212, 175, 55, 0.25);
   position: relative;
-  background: #f5f0e8;
-  margin: 16px 0 22px;
+  background: #fdfaf5;
+  margin: 18px 0 24px;
+}
+.map-embed-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: inset 0 0 28px rgba(122, 34, 50, 0.16), inset 0 0 0 1px rgba(255, 248, 220, 0.55);
 }
 .map-embed-wrapper iframe {
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+  filter: contrast(106%) saturate(125%) sepia(20%) hue-rotate(-15deg);
+  transition: filter 0.5s ease;
+}
+.map-embed-wrapper:hover iframe {
+  filter: contrast(102%) saturate(108%) sepia(8%);
 }
 .loc-actions {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 6px;
 }
-.loc-actions .btn {
+.loc-actions .btn.loc-btn {
+  font-family: 'Cinzel', serif !important;
   font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
   padding: 13px 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #851c2c 0%, #b88d3e 35%, #d4af37 60%, #8c6322 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 248, 220, 0.7) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 10px 24px rgba(120, 30, 45, 0.35), 0 0 18px rgba(212, 175, 55, 0.45) !important;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.loc-actions .btn.loc-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(120, 30, 45, 0.4), 0 0 24px rgba(212, 175, 55, 0.6) !important;
+}
+.loc-actions .btn.replay {
+  font-family: 'Cinzel', serif !important;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #7a2232 !important;
+  border: 1.5px solid #b88d3e !important;
+  border-radius: 30px !important;
+  box-shadow: 0 6px 18px rgba(120, 40, 50, 0.12) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.loc-actions .btn.replay:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: #fffdf8 !important;
+  box-shadow: 0 10px 22px rgba(120, 40, 50, 0.18) !important;
 }
 /* ===== HERO CEREMONY TITLE (सगाई समारोह) ENHANCED ===== */
 .hero-content h1 {
@@ -1730,6 +1794,10 @@ function sectionsHTML(L){
       '<h2 class="reveal script stitle">Location &amp; Route Map</h2>'+
       '<div class="rule"></div>'+
       '<div class="location-card reveal">'+
+        '<div class="card-corner tl">&#10086;</div>'+
+        '<div class="card-corner tr">&#10086;</div>'+
+        '<div class="card-corner bl">&#10086;</div>'+
+        '<div class="card-corner br">&#10086;</div>'+
         '<div class="loc-header">'+
           '<div class="loc-icon-bubble">&#128205;</div>'+
           '<div class="loc-details">'+
@@ -1743,7 +1811,7 @@ function sectionsHTML(L){
         '</div>'+
         '<div class="loc-actions">'+
           '<a class="btn loc-btn" href="'+mapDirectUrl+'" target="_blank" rel="noopener">&#128506; Open in Google Maps</a>'+
-          '<button class="btn ghost replay">&#8635; '+esc(t.again)+'</button>'+
+          '<button class="btn replay">&#8635; '+esc(t.again)+'</button>'+
         '</div>'+
       '</div>');
   }
