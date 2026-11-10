@@ -1521,8 +1521,8 @@ document.documentElement.classList.add('js');
 var $=function(id){return document.getElementById(id)};
 var DEF={bride:'Surbhi',groom:'Rakesh',brideHi:'सुरभि',groomHi:'राकेश',date:'2026-11-29',time:'17:00',
  timeText:'5:00 PM onwards',timeTextHi:'शाम 5:00 बजे से',
- venue:'Green Mapple',venueHi:'ग्रीन मेपल',loc:'Muzaffarpur, Bihar, India',locHi:'मुज़फ़्फ़रपुर, बिहार, भारत',
- map:'Green Mapple, Muzaffarpur, Bihar, India',
+ venue:'Green Mapple',venueHi:'ग्रीन मेपल',loc:'Muzaffarpur, Bihar',locHi:'मुज़फ़्फ़रपुर, बिहार',
+ map:'Green Mapple, Muzaffarpur, Bihar',
  opening:'Together with our families',openingHi:'हमारे परिवारों के साथ',
  storyTitle:'A New Beginning',storyTitleHi:'एक नई शुरुआत',
  story:["Two families united in love, rooted in tradition, and blessed with one shared dream — beginning a beautiful new chapter with the grace and blessings of our elders.", "Bound by trust, mutual respect, and cherished values, this journey is nurtured by the affection and well-wishes of everyone dear to us.", "As we take these first steps together, having your warm presence and heartfelt blessings beside us would make this celebration complete."],
@@ -1721,13 +1721,16 @@ function sectionsHTML(L){
   }
   return out}
 function render(){
+  if(cfg.loc)cfg.loc=cfg.loc.replace(/,?\s*India/gi,'').trim();
+  if(cfg.locHi)cfg.locHi=cfg.locHi.replace(/,?\s*भारत/g,'').trim();
+  if(cfg.map)cfg.map=cfg.map.replace(/,?\s*India/gi,'').trim();
   document.title=namesText()+' Engagement';
   if($('inOpen'))$('inOpen').textContent=cfg.openingHi;
   if($('inOpenEn'))$('inOpenEn').textContent=cfg.opening;
   if($('inNames'))$('inNames').innerHTML=names();
   if($('inCard'))$('inCard').innerHTML=names();
   if($('inCardDate'))$('inCardDate').textContent=dateShort();
-  if($('inCardLoc'))$('inCardLoc').textContent=(cfg.loc||'Bihar, India').split(',').slice(0,2).join(', ').toUpperCase();
+  if($('inCardLoc'))$('inCardLoc').textContent=(cfg.loc||'Muzaffarpur, Bihar').split(',').slice(0,2).join(', ').toUpperCase();
   var m=$('main');
   if(m)m.innerHTML=sectionsHTML('hi')+sectionsHTML('en')+'<div style="height:90px"></div>';
   try{initFlowers();}catch(e){}
