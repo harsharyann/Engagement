@@ -104,11 +104,11 @@ h1 .hi{font-size:.62em;color:var(--gold)}
 .hostbig{margin-top:4px}
 .stitle{color:var(--gold);font-size:clamp(34px,7vw,52px);margin-bottom:14px}
 .script.stitle{font-size:clamp(40px,8vw,62px)}
-.langtag{display:none!important;position:absolute;top:calc(14px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));font-family:var(--label);font-size:10px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:5px 12px;border-radius:20px;background:rgba(253,248,241,.6)}
+.langtag{display:none!important}
 .intro-names p{margin:0 0 4px}
 .cdDone{font-style:italic;color:var(--gold-soft);margin-top:18px;min-height:1.5em}
 .lang-hi *{font-style:normal!important}
-.lang-hi .eyebrow,.lang-hi .date-line,.lang-hi .v-row small,.lang-hi .cd span,.lang-hi .btn,.lang-hi .langtag{display:none!important;letter-spacing:.02em;text-transform:none;font-family:'AMS Manthan','Tiro Devanagari Hindi','Cormorant Garamond',serif}
+.lang-hi .eyebrow,.lang-hi .date-line,.lang-hi .v-row small,.lang-hi .cd span,.lang-hi .btn{letter-spacing:.02em;text-transform:none;font-family:'Rozha One','AMS Manthan','Tiro Devanagari Hindi','Cormorant Garamond',serif}
 .lang-hi .eyebrow{font-size:16px}
 .lang-hi .date-line{font-size:17px}
 .lang-hi .v-row small{font-size:15px}
@@ -1020,9 +1020,15 @@ h2 {
 
 /* ===== TYPEWRITER TEXT ANIMATION ===== */
 .typewriter{
-  min-height: 1.4em;
-  opacity: 0.95;
-  transition: opacity 0.4s ease;
+  min-height: 1.45em;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  position: relative;
+}
+/* Crucial: Hide text until typewriter begins typing so it never flashes or appears beforehand! */
+.typewriter:not([data-typed="true"]):not([data-typing="true"]){
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .type-cursor{
@@ -1038,6 +1044,116 @@ h2 {
 @keyframes blinkTypeCursor{
   0%{ opacity: 1; transform: scaleY(1); }
   100%{ opacity: 0; transform: scaleY(0.85); }
+}
+
+/* ===== SABSE LAST ME LOCATION & GOOGLE MAP SECTION ===== */
+.map-section {
+  padding-bottom: 120px !important;
+}
+.location-card {
+  width: min(92vw, 680px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--gold);
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 36px);
+  box-shadow: 0 25px 60px -15px rgba(91, 27, 38, 0.2), 0 0 25px rgba(212, 175, 55, 0.15);
+  backdrop-filter: blur(12px);
+  margin: 14px auto 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.location-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.loc-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.loc-icon-bubble {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c49746, #8c6322);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 8px 18px rgba(140, 99, 34, 0.35);
+  flex-shrink: 0;
+}
+.loc-details {
+  flex: 1;
+  min-width: 0;
+}
+.loc-venue {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: clamp(22px, 4.8vw, 32px);
+  color: var(--royal-rose);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.loc-address {
+  display: block;
+  font-family: var(--body-font);
+  font-size: clamp(14px, 2.8vw, 17px);
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.loc-timing {
+  display: inline-block;
+  font-family: var(--label-font);
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 600;
+  background: rgba(212, 175, 55, 0.12);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+.map-embed-wrapper {
+  width: 100%;
+  height: clamp(260px, 45vh, 360px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  position: relative;
+  background: #f5f0e8;
+  margin: 16px 0 22px;
+}
+.map-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.loc-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.loc-actions .btn {
+  font-size: 12px;
+  padding: 13px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 /* ===== HERO CEREMONY TITLE (सगाई समारोह) ENHANCED ===== */
 .hero-content h1 {
@@ -1396,13 +1512,39 @@ function sectionsHTML(L){
   out+=sc('story','bg2','story',fl('tr','bl').replace(/<div class="flower bl"[^>]*><\/div>/,'')+
     '<p class="eyebrow reveal">'+esc(t.two)+'</p><div class="story-wrap reveal"><div class="story-photos" data-cycle="'+L+'">'+photoSets().map(phHTML).join('')+'</div>'+
     '<div class="story-text"><h2 class="'+(H?'':'script ')+'stitle">'+esc(g('storyTitle'))+'</h2>'+
-    ar('story').map(function(x,i){return '<p class="story-line typewriter" data-fulltext="'+esc(x)+'">'+esc(x)+'</p>'}).join('')+'</div></div>');
+    ar('story').map(function(x,i){return '<p class="story-line typewriter" data-fulltext="'+esc(x)+'"></p>'}).join('')+'</div></div>');
   out+=sc('event','bg3','event',fl('bl','tr')+'<p class="eyebrow reveal">'+esc(t.evt)+'</p><div class="venue-card reveal">'+
     [[t.date,dLong],[t.time,g('timeText')],[t.venue,g('venue')],[t.loc,g('loc')]].map(function(r){return '<div class="v-row"><small>'+esc(r[0])+'</small><strong>'+esc(r[1])+'</strong></div>'}).join('')+
     '<a class="btn" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(cfg.map)+'" target="_blank" rel="noopener">'+esc(t.dir)+'</a></div>');
   out+=sc('family','bg2 closing','family',fl('tl','br')+'<p class="eyebrow reveal">'+esc(t.bless)+'</p><h2 class="reveal">'+esc(g('famTitle'))+'</h2><div class="rule"></div><div class="reveal">'+
-    ar('fam').map(function(x){return '<p class="letter typewriter" data-fulltext="'+esc(x)+'">'+esc(x)+'</p>'}).join('')+
-    '<p class="eyebrow" style="margin-top:26px">'+esc(t.regards)+'</p><div class="'+(H?'dn':'script')+' hostbig">'+esc(g('hosts'))+'</div>'+'<p style="margin-top:22px"><button class="btn ghost replay">'+esc(t.again)+'</button></p></div>');
+    ar('fam').map(function(x){return '<p class="letter typewriter" data-fulltext="'+esc(x)+'"></p>'}).join('')+
+    '<p class="eyebrow" style="margin-top:26px">'+esc(t.regards)+'</p><div class="'+(H?'dn':'script')+' hostbig">'+esc(g('hosts'))+'</div></div>');
+
+  var mapQuery = encodeURIComponent(cfg.map || (g('venue') + ', ' + g('loc')));
+  var mapEmbedSrc = 'https://maps.google.com/maps?q=' + mapQuery + '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+  var mapDirectUrl = 'https://www.google.com/maps/search/?api=1&query=' + mapQuery;
+
+  out+=sc('location','bg3 map-section','location',fl('bl','tr')+
+    '<p class="eyebrow reveal">'+(H?'॥ समारोह स्थल एवं मार्गदर्शन ॥':'VENUE &amp; DIRECTIONS')+'</p>'+
+    '<h2 class="reveal '+(H?'':'script ')+'stitle">'+(H?'समारोह स्थल एवं गूगल मैप':'Location &amp; Route Map')+'</h2>'+
+    '<div class="rule"></div>'+
+    '<div class="location-card reveal">'+
+      '<div class="loc-header">'+
+        '<div class="loc-icon-bubble">&#128205;</div>'+
+        '<div class="loc-details">'+
+          '<strong class="loc-venue">'+esc(g('venue'))+'</strong>'+
+          '<span class="loc-address">&#128205; '+esc(g('loc'))+'</span>'+
+          '<span class="loc-timing">&#128340; '+esc(dLong)+' &bull; '+esc(g('timeText'))+'</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="map-embed-wrapper">'+
+        '<iframe src="'+mapEmbedSrc+'" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Venue Map"></iframe>'+
+      '</div>'+
+      '<div class="loc-actions">'+
+        '<a class="btn loc-btn" href="'+mapDirectUrl+'" target="_blank" rel="noopener">&#128506; '+(H?'गूगल मैप पर रास्ता देखें':'Open in Google Maps')+'</a>'+
+        '<button class="btn ghost replay">&#8635; '+esc(t.again)+'</button>'+
+      '</div>'+
+    '</div>');
   return out}
 function render(){
   document.title=namesText()+' Engagement';
@@ -1437,6 +1579,17 @@ function tick(){
 setInterval(tick,1000);
 
 /* ---------- typewriter animation engine ---------- */
+function getGraphemes(str) {
+  if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+    try {
+      var seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+      return Array.from(seg.segment(str), function(s) { return s.segment; });
+    } catch(e) {}
+  }
+  var m = str.match(/[\s\S](?:[\u0900-\u0903\u093A-\u094F\u0951-\u0957\u0962-\u0963\uFE00-\uFE0F\u200C\u200D]*)/g);
+  return m || str.split('');
+}
+
 function playTypewriterSequence(container, onComplete) {
   if (!container) return;
   var elements = container.querySelectorAll('.typewriter:not([data-typed="true"])');
@@ -1454,9 +1607,10 @@ function playTypewriterSequence(container, onComplete) {
       return;
     }
     el.dataset.typing = 'true';
-    var text = el.getAttribute('data-fulltext') || el.textContent;
+    var text = el.getAttribute('data-fulltext') || el.textContent || '';
     el.setAttribute('data-fulltext', text);
     el.textContent = '';
+    el.style.visibility = 'visible';
     el.style.opacity = '1';
 
     var cur = document.createElement('span');
@@ -1464,11 +1618,12 @@ function playTypewriterSequence(container, onComplete) {
     cur.textContent = '|';
     el.appendChild(cur);
 
+    var clusters = getGraphemes(text);
     var charIdx = 0;
-    var speed = text.length > 80 ? 20 : 25;
+    var speed = clusters.length > 80 ? 18 : 24;
     var timer = setInterval(function() {
-      if (charIdx < text.length) {
-        cur.insertAdjacentText('beforebegin', text.charAt(charIdx));
+      if (charIdx < clusters.length) {
+        cur.insertAdjacentText('beforebegin', clusters[charIdx]);
         charIdx++;
       } else {
         clearInterval(timer);
@@ -1477,7 +1632,7 @@ function playTypewriterSequence(container, onComplete) {
         setTimeout(function() {
           if (cur.parentNode) cur.parentNode.removeChild(cur);
           typeNext(index + 1);
-        }, 160);
+        }, 140);
       }
     }, speed);
   }
@@ -1686,7 +1841,14 @@ if($('skipBtn'))$('skipBtn').onclick=function(){
 
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.replay'))replayAll()});
 function replayAll(){
-  var tws=document.querySelectorAll('.typewriter');for(var ti=0;ti<tws.length;ti++){tws[ti].removeAttribute('data-typed');tws[ti].removeAttribute('data-typing');}
+  var tws=document.querySelectorAll('.typewriter');
+  for(var ti=0;ti<tws.length;ti++){
+    tws[ti].removeAttribute('data-typed');
+    tws[ti].removeAttribute('data-typing');
+    tws[ti].textContent='';
+    tws[ti].style.visibility='';
+    tws[ti].style.opacity='';
+  }
   var phs=document.querySelectorAll('.pop-in');for(var pi=0;pi<phs.length;pi++){phs[pi].classList.remove('pop-in');}
 
   autoScrollAllowed=true;paused=false;running=true;
