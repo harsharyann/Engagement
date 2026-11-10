@@ -951,20 +951,24 @@ h2 {
 }
 .seal-ring{
   position:absolute;inset:5px;
-  border:1.5px dashed rgba(255,248,220,0.85);
+  border:1.5px solid rgba(255,248,220,0.7);
   border-radius:50%;
-  box-shadow:inset 0 0 4px rgba(0,0,0,0.25);
+  box-shadow:inset 0 0 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.4);
 }
-.seal-crown{
-  font-size:13px;color:#fff8db;line-height:1;margin-bottom:0px;
-  text-shadow:0 1px 2px rgba(0,0,0,0.5);
+.seal-inner-emboss{
+  width:42px;height:42px;border-radius:50%;
+  border:1.5px solid rgba(255,248,220,0.6);
+  background:radial-gradient(circle at 35% 30%, #ffd978 0%, #b8861e 75%, #6a4c0a 100%);
+  box-shadow:inset 0 2px 4px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.35);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
 }
-.seal-monogram{
-  font-family:'Great Vibes', cursive!important;
-  font-size:26px;font-weight:bold;
-  color:#ffffff;
-  text-shadow:0 2px 4px rgba(0,0,0,0.55), 0 0 10px rgba(255,235,160,0.6);
-  line-height:1;margin-top:1px;
+.seal-inner-emboss::after{
+  content:'';
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.4);
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.35) 0%, rgba(255,215,0,0.1) 60%, transparent 100%);
+  box-shadow:inset 0 1px 2px rgba(255,255,255,0.5);
 }
 @keyframes sealPulse{
   0%,100%{transform:scale(1);box-shadow:0 10px 25px rgba(0,0,0,0.55), 0 0 22px rgba(212,175,55,0.5)}
@@ -1371,8 +1375,7 @@ h2 {
       <div class="ribbon-tail right"></div>
       <div class="seal" id="inSeal">
         <div class="seal-ring"></div>
-        <div class="seal-crown">&#9818;</div>
-        <span class="seal-monogram" id="inMonogram">S &amp; R</span>
+        <div class="seal-inner-emboss"></div>
       </div>
     </div>
   </div>
@@ -1712,9 +1715,6 @@ function render(){
   if($('inCard'))$('inCard').innerHTML=names();
   if($('inCardDate'))$('inCardDate').textContent=dateShort();
   if($('inCardLoc'))$('inCardLoc').textContent=(cfg.loc||'Bihar, India').split(',').slice(0,2).join(', ').toUpperCase();
-  var mono=(cfg.bride[0]||'S')+' & '+(cfg.groom[0]||'R');
-  if($('inMonogram'))$('inMonogram').textContent=mono;
-  else if($('inSeal'))$('inSeal').textContent=mono;
   var m=$('main');
   if(m)m.innerHTML=sectionsHTML('hi')+sectionsHTML('en')+'<div style="height:90px"></div>';
   try{initFlowers();}catch(e){}
