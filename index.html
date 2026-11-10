@@ -1249,30 +1249,15 @@ h2 {
 }
 .loc-header {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-.loc-icon-bubble {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff8db 0%, #e0b84c 28%, #ad8223 68%, #573e07 100%);
-  border: 2px solid rgba(255, 248, 220, 0.85);
-  color: #fff;
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  box-shadow: 0 10px 24px rgba(120, 30, 45, 0.28), 0 0 20px rgba(212, 175, 55, 0.45), inset 0 2px 5px rgba(255,255,255,0.85), inset 0 -3px 6px rgba(0,0,0,0.5);
-  flex-shrink: 0;
-  position: relative;
-  animation: sealPulse 3.5s infinite ease-in-out;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .loc-details {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
+  text-align: center;
 }
 .loc-venue {
   display: block;
@@ -1799,7 +1784,6 @@ function sectionsHTML(L){
         '<div class="card-corner bl">&#10086;</div>'+
         '<div class="card-corner br">&#10086;</div>'+
         '<div class="loc-header">'+
-          '<div class="loc-icon-bubble">&#128205;</div>'+
           '<div class="loc-details">'+
             '<strong class="loc-venue">'+esc(g('venue'))+'</strong>'+
             '<span class="loc-address">&#128205; '+esc(g('loc'))+'</span>'+
